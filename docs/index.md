@@ -2,4 +2,5 @@
 sidebar_position: 1
 ---
 
-# MaaS Blender En Top
+# MaaS Blender Guide
+We will provide getting started guide for MaaS Blender soon.
