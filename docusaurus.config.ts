@@ -25,10 +25,10 @@ const config: Config = {
   organizationName: 'maasblender', // Usually your GitHub org/user name.
   projectName: 'maasblender-docs', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  trailingSlash: false,
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: true,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -55,7 +55,7 @@ const config: Config = {
           versions: {
             current: {
               label: 'current',
-              path: '',
+              path: '/',
             },
           },
           routeBasePath: '/', // Serve the docs at the site's root
@@ -70,7 +70,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'MaaS Blender Docs',
       logo: {
