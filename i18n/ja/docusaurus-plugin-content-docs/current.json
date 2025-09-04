@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "1.0.0",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.MaaS Blender En Top": {
+    "message": "MaaS Blender En Top",
+    "description": "The label for category MaaS Blender En Top in sidebar tutorialSidebar"
+  }
+}
