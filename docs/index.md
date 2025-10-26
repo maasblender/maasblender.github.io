@@ -2,5 +2,6 @@
 sidebar_position: 1
 ---
 
-# MaaS Blender Guide
-We will provide getting started guide for MaaS Blender soon.
+# MaaS Blender
+MaaS Blender is an open-source multi-mobility simulation platform which aims to evaluate MaaS (Mobility as a Service)
+by utilizing several mobility simulators.
