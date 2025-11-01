@@ -17,7 +17,7 @@ cd maasblender/examples/quick-start
 This is a minimal example environment to quickly launch and experiment with MaasBlender using Docker Compose.  
 
 ```
-/examples/get-started/
+/examples/quick-start/
 ├── broker_setup.json     # Broker configuration file
 ├── compose.yml           # Docker Compose file defining required containers and services
 ├── execute_simulation.py # Python script for file registration, integration, and execution management with the simulator
