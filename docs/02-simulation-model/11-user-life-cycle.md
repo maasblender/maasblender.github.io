@@ -25,10 +25,19 @@ DEMAND → RESERVE → RESERVED → DEPART → DEPARTED → ARRIVED
 A mobility unit (e.g., bus, taxi, or shared vehicle) repeatedly moves between locations to serve user demands.
 Unlike a user, a mobility unit does not create demands; it simply departs from one location and arrives at another.
 
-The life cycle is a continuous sequence of DEPARTED → ARRIVED events.
+The life cycle of a mobility unit is a continuous sequence of `DEPARTED → ARRIVED` events.
+The first `ARRIVED` event indicates that the mobility unit is present at its initial location at the start of the simulation.
+Each `DEPARTED → ARRIVED` pair represents a single trip segment along its route.
 
 ```
-DEPARTED → ARRIVED → DEPARTED →  ... → ARRIVED
+ARRIVED → DEPARTED → ARRIVED
+        → DEPARTED → ARRIVED
+        ... (repeat for each segment)
 ```
 
-A mobility unit may serve multiple user demands along its route, but its events only track movement.
+A mobility unit may serve multiple users along its route, but the events only track its movement between locations, not the individual user actions.
+
+
+
+
+
