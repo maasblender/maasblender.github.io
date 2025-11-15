@@ -11,7 +11,7 @@ First, clone the Maas Blender repository and move into the example project direc
 git clone https://github.com/maasblender/maasblender.git
 cd maasblender
 git checkout tags/v0.8.0
-cd maasblender/examples/quick-start
+cd maasblender/examples/01-quick-start
 ```
 
 This is a minimal example environment to quickly launch and experiment with MaasBlender using Docker Compose.  
