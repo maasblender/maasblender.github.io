@@ -3,8 +3,10 @@ sidebar_position: 10
 title: Event Specification
 ---
 
-State changes of **user** units (e.g., passengers) and **mobility** units (e.g., buses) are recorded as **events**. 
-All **events** are emitted as JSON and processed chronologically.
+State changes of **user** units (e.g., passengers) and **mobility** units (e.g., buses) are recorded as **events**.
+
+All events are emitted in **JSON Lines format**, where each line represents a single event,
+and are processed and recorded **chronologically** along the simulation timeline.
 
 ## Common Event Structure
 
@@ -12,7 +14,7 @@ Every event has the following fields:
 
 | Field       | Type           | Description                           |
 |-------------|----------------|---------------------------------------|
-| `eventType` | string         | [The type of the event](.#event-type) |
+| `eventType` | string         | [The type of the event](#event-type)  |
 | `time`      | number         | Simulation timestamp of the event     |
 | `source`    | string or null | Component that generated the event    |
 | `details`   | object         | Additional event-specific information |
@@ -287,12 +289,12 @@ There are two variations:
 - User arrival: Indicates that a user has reached the destination.
 - Mobility arrival: Indicates that a mobility unit has arrived at a location.
 
-| Field       | Type       | Required | Description              |
-|-------------|------------|----------|--------------------------|
-| `location`  | `Location` | Required | Arrival location         |
-| `userId`    | string     | Optional | ID of the user.          |
-| `demandId`  | string     | Optional | ID of the travel demand. |
-| `moilityId` | string     | Optional | ID of the mobility.      |
+| Field        | Type       | Required | Description              |
+|--------------|------------|----------|--------------------------|
+| `location`   | `Location` | Required | Arrival location         |
+| `userId`     | string     | Optional | ID of the user.          |
+| `demandId`   | string     | Optional | ID of the travel demand. |
+| `mobilityId` | string     | Optional | ID of the mobility.      |
 
 ### User arrival event example
 

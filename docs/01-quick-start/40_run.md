@@ -38,4 +38,4 @@ All events recorded to events.txt
 
 After the simulation finishes, the `events.txt` will be generated:
 The `events.txt` file contains a chronological log of all events processed by MaaS Blender during the simulation. 
-By analyzing this file, you can calculate various performance and usage metrics of the simulated mobility services.
+By analyzing these events, you can calculate various performance and usage metrics of the simulated mobility services.
