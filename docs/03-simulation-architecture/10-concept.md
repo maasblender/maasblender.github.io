@@ -21,8 +21,9 @@ This approach encourages loose coupling between components.
 The simulation architecture separates responsibilities across independent components, including:
 
 * **The Broker**, which orchestrates execution and event propagation
-* **User models**, which generate travel demands and react to service outcomes
-* **Mobility service models**, which manage vehicles, capacity, and operations
+* **Demand Generator**, which generate travel demands
+* **User models**, which model user decision-making
+* **Mobility services**, which manage vehicles, capacity, and operations
 * **Routing and planning components**, which propose feasible travel options
 
 Each component is responsible only for its own internal logic and state, and communicates exclusively via events.

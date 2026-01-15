@@ -51,22 +51,18 @@ When the trip starts, the service emits a `DEPARTED` event.
 
 When the passenger reaches the destination, the service emits an `ARRIVED` event.
 
-if the `DEPART` event is not emitted by the agreed time,
-the service is not required to transport that passenger,
-and the reservation may be considered abandoned or expired.
-
 :::warning
-Conversely, if a reservation has succeeded and the user emits a `DEPART` event before the agreed time,
-the mobility service must ensure that the passenger is transported.
+if the `DEPART` event is emitted before the agreed time,
+the mobility service must transport the passenger.
+
+if the `DEPART` event is NOT emitted by the agreed time,
+the mobility service MUST NOT transport the passenger.
 :::
 
-### Modeling Vehicle and Driver Movement
-
+:::info
 If the simulation requires explicit modeling of vehicle or driver movement,
-the mobility service may also emit `DEPARTED` and `ARRIVED` events for those entities.
-
-This is optional and depends on the desired level of simulation detail,
-but it is fully compatible with the MaaS Blender event model.
+the mobility service may also emit `DEPARTED` and `ARRIVED` events for those units.
+:::
 
 ## Design Rationale
 
