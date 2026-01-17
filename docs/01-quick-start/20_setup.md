@@ -33,5 +33,6 @@ including [GTFS](https://gtfs.org/), [GTFS-Flex](https://gtfs.org/extensions/fle
 For this Quick Start, we will use the GTFS data of the Maidohaya bus service in Toyama City, Japan,
 available [here](https://opdt.city.toyama.lg.jp/dataset/toyamacity-bus-gtfs-jp/resource/43903d9f-1d9c-42f0-bd01-8a5fc1cb828c)
 
+:::Note
 In actual simulations, you can use any GTFS dataset of your choice.  
-Here, we use this one as a sample dataset, which has already been placed in the environment.
+:::

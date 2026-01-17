@@ -3,10 +3,13 @@ sidebar_position: 50
 title: Analyze Output Events
 ---
 
-After running a simulation, events are output in JSON format as specified in the [Event Specification](../02-simulation-model/10-event.md).
+After running a simulation, an `events.txt` file is generated.
+This file records simulation events in JSON Lines format, where each line represents a single event encoded as a JSON object.
+Events are written in chronological order, reflecting the simulation timeline.
+The structure and semantics of each event are defined in the [Event Specification](../02-simulation-model/10-event.md).
 
-Here we demonstrate simple analysis techniques focusing on users and mobility units,
-using `Python` and `pandas` for quick exploration.
+Here we demonstrate simple analysis examples on the event log stored in `events.txt`,
+focusing on both user behavior and mobility unit usage, using `Python` and `pandas`
 
 ## User-focused analysis
 
