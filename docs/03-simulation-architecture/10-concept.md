@@ -9,7 +9,7 @@ Rather than simulating continuous motion or enforcing a global time step, MaaS B
 All changes in system state — such as demand creation, reservation decisions, departures, and arrivals — are expressed explicitly as events occurring at specific simulation times.
 
 ### Event-Centric Modeling
-In MaaS Blender, events are the **primary mechanism for interaction** between components.
+In MaaS Blender, events are the primary mechanism for interaction between components.
 
 * Components typically interact by emitting and receiving events.
 * Each event represents an observable change in the system state.
@@ -19,6 +19,12 @@ This approach encourages loose coupling between components.
 ### Separation of Concerns
 
 The simulation architecture separates responsibilities across independent components, including:
+
+The simulation uses event-centric modeling to separate responsibilities across components.
+Note that the components shown here are only an example reference implementation.
+Depending on your use case, you can freely compose them. 
+For example, a mobility service may embed its own routing engine, or a demand generator and user model may be integrated into a single component.
+
 
 * **The Broker**, which orchestrates execution and event propagation
 * **Demand Generator**, which generate travel demands
