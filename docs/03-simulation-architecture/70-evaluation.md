@@ -28,7 +28,7 @@ It is strictly observational and must not influence simulation behavior.
 
 The primary purpose of the evaluation component is to enable richer analysis than post-hoc event inspection alone can provide.
 
-For example, when a user successfully reserves a mobility service, 
+For example, when a user successfully reserves a mobility service,
 it may be important to know whether alternative route candidates were also reservable at that exact time.
 Because this information is only available during simulation execution, it must be observed in real time.
 
