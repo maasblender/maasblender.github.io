@@ -12,6 +12,8 @@ yarn
 
 ```bash
 yarn start
+# To start the development server with Japanese locale
+yarn start -- --locale ja
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
