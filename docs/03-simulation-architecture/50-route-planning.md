@@ -12,7 +12,7 @@ but it may also be invoked by other components when route information is require
 
 Unlike most components in MaaS Blender, the Route Planner does not communicate via events. 
 Instead, it exposes its functionality through a REST API, 
-allowing route queries such as origin and destination pairs, time constraints
+allowing route queries such as origin and destination pairs, with either departure-time or arrive-by constraints.
 
 This design reflects the Route Planner’s role as a computational service rather than a stateful simulation actor.
 
@@ -28,7 +28,9 @@ The Route Planner does not initiate actions in the simulation and does not parti
 
 ### Data Model
 
-All planners expose a `plan(org, dst, dept)` method returning a list of `Route`/`Path` candidates. Time units are minutes from the simulation’s reference start.
+Planners expose a `plan(...)` API returning a list of `Route`/`Path` candidates.
+Queries always include `org`, `dst`, and `dept`. For arrive-by planning, `arrv` is also required.
+Time units are minutes from the simulation's reference start.
 
 - `Location`: stop or coordinate identifier with `locationId`, `lat`, `lng`.
 - `Trip`: a single leg with fields:
