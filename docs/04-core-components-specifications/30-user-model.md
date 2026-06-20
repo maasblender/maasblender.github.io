@@ -45,7 +45,7 @@ This model provides a user decision policy with a small set of preferences.
 
 ### Configuration
 
-```json
+```json5
 {
   "preference_mode": "fixed",                   // or any other value for prefer mode
   "confirmed_services": ["taxi", "bus"]         // services that require reservation
@@ -74,7 +74,7 @@ This model provides richer, per-user route preferences including favorite servic
 
 ### Configuration
 
-```json
+```json5
 {
   "user_params": {
     "U001": {

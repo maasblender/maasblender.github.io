@@ -40,7 +40,7 @@ The Simple Planner is typically configured through the broker setup with GTFS or
 
 #### GTFS Configuration
 
-```json
+```json5
 {
   "planner": {
     "type": "planner",
@@ -87,7 +87,7 @@ The Simple Planner is typically configured through the broker setup with GTFS or
 
 #### GBFS Configuration
 
-```json
+```json5
 {
   "planner": {
     "type": "planner",
@@ -141,7 +141,7 @@ The OTP graph building process requires these files and will fail if any are mis
 
 #### Basic Configuration Structure
 
-```json
+```json5
 {
   "planner": {
     "type": "planner",
@@ -193,7 +193,7 @@ The `otp-config.zip` should contain:
   Road network for walking and cycling routes
 
 2. **build-config.json** (optional):
-   ```json
+   ```json5
    {
      "areaVisibility": true,
      "platformEntriesLinking": true,
@@ -202,7 +202,7 @@ The `otp-config.zip` should contain:
    ```
 
 3. **router-config.json** (optional):
-   ```json
+   ```json5
    {
      "routingDefaults": {
        "walkSpeed": 1.4,

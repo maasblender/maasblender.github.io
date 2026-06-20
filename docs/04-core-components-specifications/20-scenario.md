@@ -33,11 +33,11 @@ The project currently ships three reference implementations under `maasblender/s
 
 ### Configuration
 
-```json
+```json5
 {
   "seed": 123,                               // RNG seed for reproducibility
   "userIDFormat": "U%03d",                 // e.g., U001, U002, ...
-  "demandIDFormat": "D_%d",                // e.g., D_1, D_2, ... 
+  "demandIDFormat": "D_%d",                // e.g., D_1, D_2, ...
   "demands": [
     // you can use multiple overlapping windows
     {
@@ -61,7 +61,7 @@ If `p > 0.1` per minute, use a smaller unit time to better approximate a Poisson
 
 #### Example
 
-```json
+```json5
 {
   "seed": 128,
   "userIDFormat": "U%03d",
@@ -133,11 +133,11 @@ event itself is emitted at simulation time `0.0`.
 ### Configuration
 The `/setup` payload accepts a collection of `HistoricalDemandSetting` items, plus two ID formats:
 
-```json
+```json5
 {
-  "user_id_format": "U%03d",          // used when a record has no user_id
-  "demand_id_format": "D_%d",         // used when a record has no demand_id
-  "settings": [
+  "userIDFormat": "U%03d",            // used when a record has no user_id
+  "demandIDFormat": "D_%d",           // used when a record has no demand_id
+  "trips": [
     {
       "time": 480.0,                   // exact emission time (minutes since start)
       "org": {"locationId": "A", "lat": 35.1, "lng": 139.1},
@@ -182,7 +182,7 @@ The `/setup` payload accepts a collection of `HistoricalDemandSetting` items, pl
 
 #### Configuration
 
-```json
+```json5
 {
   "demandIDFormat": "D_%d",
   "commuters": {

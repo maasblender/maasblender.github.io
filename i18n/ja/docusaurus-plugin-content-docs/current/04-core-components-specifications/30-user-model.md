@@ -45,7 +45,7 @@ title: "ユーザーモデル"
 
 ### 設定
 
-```json
+```json5
 {
   "preference_mode": "fixed",                   // または他の値（設定モード用）
   "confirmed_services": ["taxi", "bus"]         // 予約が必要なサービス
@@ -74,7 +74,7 @@ title: "ユーザーモデル"
 
 ### 設定
 
-```json
+```json5
 {
   "user_params": {
     "U001": {

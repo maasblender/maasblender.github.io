@@ -28,7 +28,7 @@ title: "需要生成"
 
 ### 設定
 
-```json
+```json5
 {
   "seed": 123,                               // 再現性のための乱数シード
   "userIDFormat": "U%03d",                 // 例: U001, U002, ...
@@ -55,7 +55,7 @@ title: "需要生成"
 
 #### 例
 
-```json
+```json5
 {
   "seed": 128,
   "userIDFormat": "U%03d",
@@ -124,7 +124,7 @@ title: "需要生成"
 
 ### 設定
 
-```json
+```json5
 {
   "user_id_format": "U%03d",          // レコードに user_id がない場合に使用
   "demand_id_format": "D_%d",         // レコードに demand_id がない場合に使用
@@ -173,7 +173,7 @@ title: "需要生成"
 
 #### 設定
 
-```json
+```json5
 {
   "demand_id_format": "D_%d",
   "commuters": {
