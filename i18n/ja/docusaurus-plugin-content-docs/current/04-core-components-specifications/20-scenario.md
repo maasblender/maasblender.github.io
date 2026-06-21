@@ -126,9 +126,9 @@ title: "需要生成"
 
 ```json5
 {
-  "user_id_format": "U%03d",          // レコードに user_id がない場合に使用
-  "demand_id_format": "D_%d",         // レコードに demand_id がない場合に使用
-  "settings": [
+  "userIDFormat": "U%03d",            // レコードに user_id がない場合に使用
+  "demandIDFormat": "D_%d",           // レコードに demand_id がない場合に使用
+  "trips": [
     {
       "time": 480.0,                   // 正確な発行時刻（開始からの分）
       "org": {"locationId": "A", "lat": 35.1, "lng": 139.1},
@@ -165,7 +165,7 @@ title: "需要生成"
 - leave-at の区間では、設定された出発時刻に `DEMAND` を発行し、`dept` を設定します。
 - arrive-by の区間では、目標到着時刻の `leadTime` 分前に `DEMAND` を発行し、`arrv` を設定します。
 - このパターンは 1440 分（1 日）ごとに繰り返されます。
-- `demandId` は指定された `demand_id_format` から生成されます。
+- `demandId` は指定された `demandIDFormat` から生成されます。
 - スキーマでは次の検証が行われます。
   - `deptOut` と `arrvOut` の両方指定は不可、かつどちらか一方は必須
   - `deptIn` と `arrvIn` の両方指定は不可、かつどちらか一方は必須
@@ -175,7 +175,7 @@ title: "需要生成"
 
 ```json5
 {
-  "demand_id_format": "D_%d",
+  "demandIDFormat": "D_%d",
   "commuters": {
     "U001": {
       "deptOut": 480.0,   // 08:00
@@ -186,8 +186,9 @@ title: "需要生成"
       "service": "rail"
     },
     "U002": {
-      "deptOut": 510.0,   // 08:30
-      "deptIn": 1110.0,   // 18:30
+      "arrvOut": 540.0,   // 09:00 目標到着時刻
+      "arrvIn": 1140.0,   // 19:00 帰宅側の目標到着時刻
+      "leadTime": 15.0,   // arrive-by 需要を 15 分前に発行
       "org": {"locationId": "Home2", "lat": 35.2, "lng": 139.2},
       "dst": {"locationId": "Work2", "lat": 35.6, "lng": 139.6}
     }
@@ -197,7 +198,9 @@ title: "需要生成"
 
 #### 出力
 - `users()` はすべての通勤者を返します。
-- 毎日、`deptOut` と `deptIn` に `DEMAND` イベントが発行されます。復路イベントでは起点/目的地が自動で反転されます。
+- 毎日、通勤者ごとに 2 件の `DEMAND` イベントが発行されます。
+- 復路イベントでは起点/目的地が自動で反転されます。
+- 各イベントは時間制約をちょうど 1 つだけ持ちます（leave-at は `dept`、arrive-by は `arrv`）。
 
 ---
 
