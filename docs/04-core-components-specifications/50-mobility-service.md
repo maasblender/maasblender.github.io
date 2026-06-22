@@ -45,7 +45,7 @@ Because it does not account for real-world walking constraints such as road netw
 
 The Walking simulator is configured via the `/setup` endpoint:
 
-```json
+```json5
 {
   "walking_meters_per_minute": 80.0   // walking speed in meters per minute (default: 80.0)
 }
@@ -61,7 +61,7 @@ For short urban distances the difference from a flat-Earth approximation is negl
 
 #### Example
 
-```json
+```json5
 {
   "walking_meters_per_minute": 60.0
 }
@@ -72,7 +72,7 @@ Setting `60.0` m/min (3.6 km/h) models a slower-paced elderly walker or a route 
 ### Output
 
 - `RESERVED` event (emitted immediately after `RESERVE`):
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -91,7 +91,7 @@ Setting `60.0` m/min (3.6 km/h) models a slower-paced elderly walker or a route 
   }
   ```
 - `DEPARTED` event (emitted at `dept`):
-  ```json
+  ```json5
   {
     "eventType": "DEPARTED",
     "details": {
@@ -104,7 +104,7 @@ Setting `60.0` m/min (3.6 km/h) models a slower-paced elderly walker or a route 
   }
   ```
 - `ARRIVED` event (emitted at `arrv`):
-  ```json
+  ```json5
   {
     "eventType": "ARRIVED",
     "details": {
@@ -145,7 +145,7 @@ It loads GTFS data and simulates vehicles following pre-defined stop sequences, 
 
 The Scheduled simulator is configured via the `/setup` endpoint after uploading a GTFS zip file:
 
-```json
+```json5
 {
   "reference_time": "20251016",          // simulation reference date (YYYYMMDD, 8 chars)
   "input_files": [
@@ -168,7 +168,7 @@ GTFS `block_id` is supported. Trips that share a `block_id` are chained into a c
 ### Output
 
 - `RESERVED` event (success):
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -188,7 +188,7 @@ GTFS `block_id` is supported. Trips that share a `block_id` are chained into a c
   }
   ```
 - `RESERVED` event (failure):
-  ```json
+  ```json5
   { "eventType": "RESERVED", "details": { "userId": "U001", "demandId": "D_1", "success": false } }
   ```
 - `DEPARTED` and `ARRIVED` events: emitted when the vehicle reaches the respective stop.
@@ -221,7 +221,7 @@ This distinguishes it from the Scheduled simulator, which only serves stops list
 
 The Route Deviation simulator shares the same configuration structure as Scheduled:
 
-```json
+```json5
 {
   "reference_time": "20251016",          // simulation reference date (YYYYMMDD, 8 chars)
   "input_files": [
@@ -266,7 +266,7 @@ Each vehicle operates within a defined service area (derived from GTFS FLEX) and
 
 The On-Demand simulator requires uploading a GTFS FLEX zip and a stop-to-stop distance matrix:
 
-```json
+```json5
 {
   "reference_time": "20251016",            // simulation reference date (YYYYMMDD)
   "input_files": [
@@ -308,7 +308,7 @@ When `enable_ortools` is `true`, `board_time` is ignored and will be overridden 
 ### Output
 
 - `RESERVED` event (success):
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -328,7 +328,7 @@ When `enable_ortools` is `true`, `board_time` is ignored and will be overridden 
   }
   ```
 - `RESERVED` event (failure):
-  ```json
+  ```json5
   { "eventType": "RESERVED", "details": { "userId": "U001", "demandId": "D_1", "success": false } }
   ```
 - `DEPARTED` and `ARRIVED` events carry the vehicle's current stop location and the `mobilityId`.
@@ -359,7 +359,7 @@ An operator process periodically rebalances vehicles across stations.
 
 The One-Way simulator is configured after uploading a GBFS zip file:
 
-```json
+```json5
 {
   "input_files": [
     { "filename": "gbfs.zip" }              // GBFS archive (station_information + free_bike_status)
@@ -388,7 +388,7 @@ The GBFS file's `current_range_meters` field per bike is used to initialize each
 ### Output
 
 - `RESERVED` event (success):
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -408,7 +408,7 @@ The GBFS file's `current_range_meters` field per bike is used to initialize each
   }
   ```
 - `RESERVED` event (failure):
-  ```json
+  ```json5
   { "eventType": "RESERVED", "details": { "userId": "U001", "demandId": "D_1", "success": false } }
   ```
 - `DEPARTED` and `ARRIVED` events carry `mobilityId` (the specific bike/scooter ID) and the station location.

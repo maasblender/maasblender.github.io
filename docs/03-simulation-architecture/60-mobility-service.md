@@ -35,6 +35,9 @@ Upon receiving a `RESERVE` event, the mobility service must determine whether it
 This decision may consider factors such as 
 vehicle availability, driver availability, maximum passenger capacity, service-specific constraints.
 
+For arrive-by requests, the reservation payload may also include `details.arrv`.
+Mobility simulators accept this field and use it together with the trip leg timing carried in `details.dept`.
+
 The service must then emit a `RESERVED` event indicating whether the reservation succeeded or failed.
 
 :::warning

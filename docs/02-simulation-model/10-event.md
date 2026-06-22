@@ -76,7 +76,7 @@ Exactly one of `dept` or `arrv` must be null, depending on the type of requested
 
 ### Demand event example
 
-```json
+```json5
 {
   "eventType": "DEMAND",
   "time": 120.5,
@@ -115,7 +115,7 @@ It simply represents a user-initiated request, and the mobility service may late
 | `details.arrv`     | number | Optional | Requested arrival time (for arrive-by demands).                   |
 
 ### Reserve event example
-```json
+```json5
 {
   "eventType": "RESERVE",
   "time": 121.0,
@@ -151,7 +151,7 @@ There are two possible results:
 
 ### Reserved event example in the success case
 
-```json
+```json5
 {
   "eventType": "RESERVED",
   "time": 121.5,
@@ -179,7 +179,7 @@ The assigned route uses service `service-001`, departing from location `A` at `1
 
 ### Reserved event example in the failure case
 
-```json
+```json5
 {
   "eventType": "RESERVED",
   "time": 121.5,
@@ -217,7 +217,7 @@ In that case, the mobility service may handle it internally as a no-show, depend
 
 ### Depart event example
 
-```json
+```json5
 {
   "eventType": "DEPART",
   "time": 130.0,
@@ -250,7 +250,7 @@ There are two variations:
 
 ### User departure event example
 
-```json
+```json5
 {
   "eventType": "DEPARTED",
   "time": 130.0,
@@ -267,7 +267,7 @@ This means:
 
 ### Mobility departure event example
 
-```json
+```json5
 {
   "eventType": "DEPARTED",
   "time": 128.0,
@@ -298,7 +298,7 @@ There are two variations:
 
 ### User arrival event example
 
-```json
+```json5
 {
   "eventType": "ARRIVED",
   "time": 150.0,
@@ -315,7 +315,7 @@ This means:
 
 ### Mobility arrival event example
 
-```json
+```json5
 {
   "eventType": "ARRIVED",
   "time": 145.0,

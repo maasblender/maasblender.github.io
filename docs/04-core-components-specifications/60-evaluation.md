@@ -18,7 +18,7 @@ This evaluator evaluates which services are reservable for each DEMAND event, en
 
 #### Configuration
 
-```json
+```json5
 {
   "planner": {
     "endpoint": "http://broker/plan"
@@ -43,7 +43,7 @@ This evaluator evaluates which services are reservable for each DEMAND event, en
 The Simple Evaluator generates an `evaluation.txt` file containing evaluation results in JSON Lines format (one JSON object per line).
 Each line represents the evaluation result for a single `DEMAND` event.
 
-```json
+```json5
 {
   "demand_id": "D_1",
   "time": 570.0,

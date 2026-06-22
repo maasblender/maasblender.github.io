@@ -4,14 +4,14 @@ title: "Route Planner"
 ---
 
 This chapter specifies the Route Planner component in MaaS Blender.
-The Route Planner converts a user's travel intention (`org`, `dst`, `dept`) into one or more route candidates, each composed of ordered legs.
+The Route Planner converts a user's travel intention (`org`, `dst`, and either `dept` or `arrv`) into one or more route candidates, each composed of ordered legs.
 Each route represents a possible way to travel from origin to destination, potentially involving multiple modes of transportation.
 
 The project currently ships two reference implementations under `maasblender/src/planner`:
 - Simple In-Process Planner: for deterministic routing over synthetic mobility networks.
 - OpenTripPlanner-backed Service: for real-world multi-modal routing using GTFS and OpenStreetMap data.
 
-Both implementations provide the same interface: given an origin, destination, and departure time, they return a list of `Route` objects.
+Both implementations provide the same interface: given an origin, destination, and a time constraint, they return a list of `Route` objects.
 
 ## Simple In-Process Planner
 
@@ -25,7 +25,7 @@ This planner provides a lightweight routing solution for mobility networks, typi
 - The planner constructs a `MobilityNetwork` from input data
   - Nodes represent locations (stops, stations, or points of interest).
   - Edges represent mobility services with associated travel times and schedules.
-- Given `(org, dst, dept)`, the planner searches the network for possible paths.
+- Given `(org, dst, dept, arrv)`, the planner searches the network for possible paths.
   - Routes are composed of one or more trips, each representing a leg using a specific service.
   - Walking is typically included as a default fallback service with distance-based travel time.
 - The planner produces consistent results for identical inputs (no randomness).
@@ -40,7 +40,7 @@ The Simple Planner is typically configured through the broker setup with GTFS or
 
 #### GTFS Configuration
 
-```json
+```json5
 {
   "planner": {
     "type": "planner",
@@ -87,7 +87,7 @@ The Simple Planner is typically configured through the broker setup with GTFS or
 
 #### GBFS Configuration
 
-```json
+```json5
 {
   "planner": {
     "type": "planner",
@@ -125,7 +125,7 @@ In Maas Blender, OTP is typically configured using GTFS and GBFS files through t
   - GTFS for transit schedules and GBFS for bike share stations.
   - OTP Configuration for graph build settings and routing preferences.
   - OpenStreetMap (OSM) for walking, cycling, and road networks
-- Sends a planning request to the OTP endpoint with origin, destination, and departure time.
+- Sends a planning request to the OTP endpoint with origin, destination, and departure time, with optional arrive-by time when needed.
   - OTP returns one or more itineraries, each composed of legs with different modes (walk, bus, train, etc.).
   - The planner transforms OTP's response into MaaS Blender's `Route` format.
 - Handles complex combinations like walk → bus → transfer → train → walk.
@@ -141,7 +141,7 @@ The OTP graph building process requires these files and will fail if any are mis
 
 #### Basic Configuration Structure
 
-```json
+```json5
 {
   "planner": {
     "type": "planner",
@@ -193,7 +193,7 @@ The `otp-config.zip` should contain:
   Road network for walking and cycling routes
 
 2. **build-config.json** (optional):
-   ```json
+   ```json5
    {
      "areaVisibility": true,
      "platformEntriesLinking": true,
@@ -202,7 +202,7 @@ The `otp-config.zip` should contain:
    ```
 
 3. **router-config.json** (optional):
-   ```json
+   ```json5
    {
      "routingDefaults": {
        "walkSpeed": 1.4,
@@ -220,5 +220,9 @@ For detailed OTP configuration options, refer to the [OpenTripPlanner documentat
 
 ## Common Operational Notes
 
-- Both planners implement the same interface: `plan(org, dst, dept)` → `List[Route]`.
+- Both planners implement the same interface: `plan(org, dst, dept, arrv)` → `List[Route]`.
 - All locations use WGS84 coordinates (latitude/longitude).
+
+:::warning
+`SimplePlanner` currently supports departure-time-based planning with `dept`; `arrv`-based planning is not yet supported.
+:::

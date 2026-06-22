@@ -40,7 +40,7 @@ Through this loop, the Broker ensures that events are processed in strict tempor
  
   * Returns:
 
-    ```json
+    ```json5
     { "next": number }
     ```
 
@@ -50,7 +50,7 @@ Through this loop, the Broker ensures that events are processed in strict tempor
 
   * Returns:
 
-    ```json
+    ```json5
     { "now": number, "events": Event[] }
     ```
 

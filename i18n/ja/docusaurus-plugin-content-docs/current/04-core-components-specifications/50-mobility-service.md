@@ -45,7 +45,7 @@ title: "モビリティサービス"
 
 徒歩シミュレーターは `/setup` エンドポイントで設定します。
 
-```json
+```json5
 {
   "walking_meters_per_minute": 80.0   // 歩行速度（メートル/分）（デフォルト: 80.0）
 }
@@ -60,7 +60,7 @@ title: "モビリティサービス"
 
 #### 例
 
-```json
+```json5
 {
   "walking_meters_per_minute": 60.0
 }
@@ -71,7 +71,7 @@ title: "モビリティサービス"
 ### 出力
 
 - `RESERVED` イベント（`RESERVE` の直後に発行）:
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -90,7 +90,7 @@ title: "モビリティサービス"
   }
   ```
 - `DEPARTED` イベント（`dept` の時刻に発行）:
-  ```json
+  ```json5
   {
     "eventType": "DEPARTED",
     "details": {
@@ -103,7 +103,7 @@ title: "モビリティサービス"
   }
   ```
 - `ARRIVED` イベント（`arrv` の時刻に発行）:
-  ```json
+  ```json5
   {
     "eventType": "ARRIVED",
     "details": {
@@ -144,7 +144,7 @@ GTFS データを読み込み、事前定義された停留所の立ち寄り順
 
 定時運行シミュレーターは、GTFS zip ファイルをアップロードした後、`/setup` エンドポイントで設定します。
 
-```json
+```json5
 {
   "reference_time": "20251016",          // シミュレーション基準日（YYYYMMDD、8 文字）
   "input_files": [
@@ -167,7 +167,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
 ### 出力
 
 - `RESERVED` イベント（成功）:
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -187,7 +187,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
   }
   ```
 - `RESERVED` イベント（失敗）:
-  ```json
+  ```json5
   { "eventType": "RESERVED", "details": { "userId": "U001", "demandId": "D_1", "success": false } }
   ```
 - `DEPARTED`・`ARRIVED` イベント: 車両が対応する停留所に到着したときに発行されます。
@@ -222,7 +222,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
 
 ルート逸脱シミュレーターは定時運行と同じ設定構造を持ちます。
 
-```json
+```json5
 {
   "reference_time": "20251016",          // シミュレーション基準日（YYYYMMDD、8 文字）
   "input_files": [
@@ -267,7 +267,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
 
 オンデマンドシミュレーターは、GTFS FLEX zip ファイルと停留所間距離行列のアップロードが必要です。
 
-```json
+```json5
 {
   "reference_time": "20251016",            // シミュレーション基準日（YYYYMMDD）
   "input_files": [
@@ -305,7 +305,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
 ### 出力
 
 - `RESERVED` イベント（成功）:
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -325,7 +325,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
   }
   ```
 - `RESERVED` イベント（失敗）:
-  ```json
+  ```json5
   { "eventType": "RESERVED", "details": { "userId": "U001", "demandId": "D_1", "success": false } }
   ```
 - `DEPARTED`・`ARRIVED` イベントには車両の現在停留所の位置と `mobilityId` が格納されます。
@@ -356,7 +356,7 @@ GTFS の `block_id` をサポートしています。同じ `block_id` を持つ
 
 ワンウェイシミュレーターは、GBFS zip ファイルをアップロードした後に設定します。
 
-```json
+```json5
 {
   "input_files": [
     { "filename": "gbfs.zip" }              // GBFS アーカイブ（station_information + free_bike_status）
@@ -385,7 +385,7 @@ GBFS ファイル内の各自転車の `current_range_meters` フィールドを
 ### 出力
 
 - `RESERVED` イベント（成功）:
-  ```json
+  ```json5
   {
     "eventType": "RESERVED",
     "details": {
@@ -405,7 +405,7 @@ GBFS ファイル内の各自転車の `current_range_meters` フィールドを
   }
   ```
 - `RESERVED` イベント（失敗）:
-  ```json
+  ```json5
   { "eventType": "RESERVED", "details": { "userId": "U001", "demandId": "D_1", "success": false } }
   ```
 - `DEPARTED`・`ARRIVED` イベントには `mobilityId`（特定の自転車/キックボードの ID）とステーションの位置情報が格納されます。

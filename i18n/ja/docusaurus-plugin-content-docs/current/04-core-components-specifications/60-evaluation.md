@@ -17,7 +17,7 @@ title: "評価：分析サイドカー"
 
 ### 設定
 
-```json
+```json5
 {
   "planner": {
     "endpoint": "http://broker/plan"
@@ -42,7 +42,7 @@ title: "評価：分析サイドカー"
 シンプル評価器は、JSON Lines形式（1行につき1つのJSONオブジェクト）の評価結果を含む `evaluation.txt` ファイルを生成します。
 各行は単一の `DEMAND` イベントに対する評価結果を表します。
 
-```json
+```json5
 {
   "demand_id": "D_1",
   "time": 570.0,

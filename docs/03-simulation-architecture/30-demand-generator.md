@@ -26,6 +26,10 @@ A `DEMAND` represents a user’s *future* intention to travel from an origin (`o
 It expresses *what the user wants to do* independently of how the trip will be executed (services, vehicles, routing);
 those are handled downstream by the User Model.
 
+You can specify a time constraint for the demand in one of two ways:
+- Leave-at demands use `dept`.
+- Arrive-by demands use `arrv`.
+
 :::info
 A `DEMAND` must represent a future trip relative to its generation time; 
 if reservation is required it must be generated before `dept`, 

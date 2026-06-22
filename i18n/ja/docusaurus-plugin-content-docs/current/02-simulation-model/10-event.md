@@ -77,7 +77,7 @@ Trip は、予約された経路の一部であり、特定のモビリティサ
 
 ### Demand イベント例
 
-```json
+```json5
 {
   "eventType": "DEMAND",
   "time": 120.5,
@@ -119,7 +119,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### Reserve Event Example
 
-```json
+```json5
 {
   "eventType": "RESERVE",
   "time": 121.0,
@@ -155,7 +155,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### Reserved イベントの例（予約成功時）
 
-```json
+```json5
 {
   "eventType": "RESERVED",
   "time": 121.5,
@@ -200,7 +200,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### Depart イベントの例
 
-```json
+```json5
 {
   "eventType": "DEPART",
   "time": 130.0,
@@ -236,7 +236,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### ユーザー出発イベントの例
 
-```json
+```json5
 {
   "eventType": "DEPARTED",
   "time": 130.0,
@@ -253,7 +253,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### モビリティ出発イベントの例
 
-```json
+```json5
 {
   "eventType": "DEPARTED",
   "time": 128.0,
@@ -287,7 +287,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### ユーザー到着イベントの例
 
-```json
+```json5
 {
   "eventType": "ARRIVED",
   "time": 150.0,
@@ -304,7 +304,7 @@ RESERVE イベントは、モビリティサービスによって予約が受理
 
 ### モビリティ到着イベントの例
 
-```json
+```json5
 {
   "eventType": "ARRIVED",
   "time": 145.0,
