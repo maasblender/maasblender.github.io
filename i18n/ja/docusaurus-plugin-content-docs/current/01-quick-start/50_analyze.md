@@ -11,6 +11,12 @@ title: モビリティサービスの分析
 以下では、`events.txt` に記録されたイベントを対象として、
 `Python` と `pandas` を用い、ユーザー視点およびモビリティユニット視点の簡単な分析例を示します。
 
+分析例を実行する前に、同じ Python 環境に `pandas` をインストールしてください。
+
+```shell
+python -m pip install pandas
+```
+
 ## ユーザー視点の分析
 
 以下のコードでは、`DataFrame` から徒歩以外の `RESERVED` イベントのみを抽出し、分析に利用します。

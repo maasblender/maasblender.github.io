@@ -10,16 +10,16 @@ title: セットアップ
 ```shell
 git clone https://github.com/maasblender/maasblender.git
 cd maasblender
-git checkout tags/v0.8.0
-cd maasblender/examples/01-quick-start
+git checkout tags/v1.1.1
+cd examples/quick-start
 ```
 
 このディレクトリには、Docker Compose を使用して Maas Blender の動作を試すための最小構成が含まれます。
 
 ```
-/examples/quick-start/
+examples/quick-start/
 ├── broker_setup.json     # ブローカーの設定ファイル
-├── compose.yml           # 必要なコンテナおよびサービスを定義した Docker Compose ファイル
+├── compose.yaml          # 必要なコンテナおよびサービスを定義した Docker Compose ファイル
 ├── execute_simulation.py # シミュレータとのファイル登録・連携・実行管理を行う Python スクリプト
 ├── gtfs.zip              # サンプルの GTFS ファイル
 └── otp-config.zip        # OpenTripPlanner 用の設定ファイル
@@ -30,7 +30,9 @@ cd maasblender/examples/01-quick-start
 Maas Blender は、[GTFS](https://gtfs.org/), [GTFS-Flex](https://gtfs.org/extensions/flex/), [GBFS](https://gbfs.org/)
 などのオープンなモビリティデータ標準をサポートしています。
 
-このクイックスタートでは、富山市の「まいどはや」バスの [GTFS データ](https://opdt.city.toyama.lg.jp/dataset/toyamacity-bus-gtfs-jp/resource/43903d9f-1d9c-42f0-bd01-8a5fc1cb828c) を使用します。
+このクイックスタートでは、サンプルディレクトリに同梱された `gtfs.zip` と `otp-config.zip` を使用します。
+サンプルには、富山市の「まいどはや」バスの GTFS データが含まれています。[データの公開元はこちら](https://opdt.city.toyama.lg.jp/dataset/toyamacity-bus-gtfs-jp/resource/43903d9f-1d9c-42f0-bd01-8a5fc1cb828c)です。
+追加のダウンロードや設定ファイルの編集は不要です。
 
 :::info
 実際のシミュレーションでは、任意の GTFS データセットを使用することができます。
