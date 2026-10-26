@@ -11,6 +11,12 @@ The structure and semantics of each event are defined in the [Event Specificatio
 Here we demonstrate simple analysis examples on the event log stored in `events.txt`,
 focusing on both user behavior and mobility unit usage, using `Python` and `pandas`
 
+Install `pandas` in the same Python environment before running these examples:
+
+```shell
+python -m pip install pandas
+```
+
 ## User-focused analysis
 
 The following code selects all non-walking `RESERVED` events in a `DataFrame` for further analysis.

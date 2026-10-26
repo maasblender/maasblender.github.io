@@ -9,6 +9,8 @@ Before you begin, make sure you have the following installed on your machine:
 - **Docker** and **Docker Compose** — used to run the simulation environment in containers
 - **Python 3.9+** — used to run execution scripts that interact with Maas Blender services to run simulations
 
+The example publishes ports **3000**, **3001**, and **3010**; these ports must be available.
+
 ## Install Python Dependencies
 
 The execution script used in this guide depends on the `httpx` library for making HTTP requests.
@@ -16,5 +18,5 @@ The execution script used in this guide depends on the `httpx` library for makin
 Please install it before running the simulation:
 
 ```shell
-pip install httpx
+python -m pip install httpx
 ```
